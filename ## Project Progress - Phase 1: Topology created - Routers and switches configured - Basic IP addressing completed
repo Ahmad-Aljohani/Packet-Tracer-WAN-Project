@@ -1,1 +1,35 @@
+phase 1 progress and setup
+
+devices:-
+at first we used 2 Cisco ISR4331 Routers Models and 4 Switches and 12 PCs as shown in the topology.png then the PCs were distributed across the Four LANs
+
+WAN serial links:-
+to establish the serial link we need to install the NIM-2T module into the expansion slot on the two Routers to enable the serial link connection WAN
+and then we connected the two Routers using the serial DTE cable Serial 0/1/0 interface
+
+after that we configured the gigabit interfaces on the Routers to serve as gateways for the LANs and assigned the IPs on the 4 LANs
+
+on Router 1:
+gig0/0/0 LAN1: 172.16.10.1/24
+gig0/0/1 LAN2: 172.16.20.1/24
+
+on Router 2:
+gig0/0/0 LAN3: 172.16.30.1/24
+gig0/0/1 LAN4: 172.16.40.1/24
+
+
+
+then i configured the ip addresses on serial 0/1/0 and enabled the serial cable for the Routers on the CLI by using these comannds:-
+
+on Router1:
+interface s0/1/0
+ip add 10.10.10.1 255.255.255.252
+no sh
+
+on Router2:
+interface s0/1/0
+ip add 10.10.10.2 255.255.255.252
+no sh
+
+after that we configuerd all the PCs with there static IPs and subnet maskes and their Default gateways
 
